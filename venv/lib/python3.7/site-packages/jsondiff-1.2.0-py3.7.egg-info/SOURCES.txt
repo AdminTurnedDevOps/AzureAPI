@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+jsondiff/__init__.py
+jsondiff/cli.py
+jsondiff/symbols.py
+jsondiff.egg-info/PKG-INFO
+jsondiff.egg-info/SOURCES.txt
+jsondiff.egg-info/dependency_links.txt
+jsondiff.egg-info/entry_points.txt
+jsondiff.egg-info/top_level.txt
+tests/__init__.py
+tests/generate_readme.py
+tests/utils.py
