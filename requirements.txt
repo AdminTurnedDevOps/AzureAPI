@@ -1,2 +1,2 @@
 Flask
-azure-cli
+azure
