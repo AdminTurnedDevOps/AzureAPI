@@ -16,7 +16,7 @@ def home():
     except Exception as e:
         return e
 
-@azureAPI.route('/listvms')
+@azureAPI.route('/listvms', methods=['GET'])
 def listvms():
     return jsonify(AzureCLI.listVMs())
 

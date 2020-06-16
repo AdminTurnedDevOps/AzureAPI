@@ -1,12 +1,13 @@
-from azure.cli.core import get_default_cli as azcli
+import os
 import logging
+
 
 class AzureCLI:
 
     def listVMs():
         try:
-            cli = azcli().invoke('vm', 'list')
-            return cli
+            az = os.system('az vm list')
+            return az
 
         except Exception as e:
-            logging.error(msg='The Azure CLI could not be contacted...')
+            logging.error(msg=e)
