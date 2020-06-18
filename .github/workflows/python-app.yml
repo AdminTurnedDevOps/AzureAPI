@@ -40,7 +40,7 @@ jobs:
     - name: Azure CLI Action
       uses: Azure/cli@v1.0.0
       with:
-        inlineScript: az appservice plan create -g ${{ env.resourceGroup }} -n azureapiplan
+        inlineScript: az appservice plan create -g ${{ env.resourceGroup }} -n azureapiplan --is-linux
 
     - name: Azure CLI Action
       uses: Azure/cli@v1.0.0
@@ -52,4 +52,4 @@ jobs:
       with:
         app-name: ${{ env.appName }}
         package: .
-        #startup-command: python app.py
+        startup-command: python app.py
