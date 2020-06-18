@@ -38,8 +38,8 @@ jobs:
     - name: Deploy to Azure Container Instances
       uses: Azure/aci-deploy@v1
       with:
-        resource-group: ${{ var.resourceGroup }}
-        dns-name-label: ${{ var.dnsLabel }}
+        resource-group: ${resourceGroup}
+        dns-name-label: ${dnsLabel}
         image: python:3.7.2-alpine/
         location: eastus
         name: AzureAPI
