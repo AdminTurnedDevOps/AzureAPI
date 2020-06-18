@@ -36,7 +36,7 @@ jobs:
 #    - name: Lint with flake8
 #      run: |
 #        flake8 app.py
-
+#
     - name: Azure CLI Action
       uses: Azure/cli@v1.0.0
       with:
