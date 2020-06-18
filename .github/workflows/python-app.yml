@@ -35,7 +35,6 @@ jobs:
     - name: Lint with flake8
       run: |
         flake8 app.py
-        flake8 AzureCLI.py
         
     - name: Deploy to Azure Container Instances
       uses: Azure/aci-deploy@v1
@@ -47,3 +46,4 @@ jobs:
         name: azureapi
         os-type: Linux
         ports: 5000
+        Command: python app.py
