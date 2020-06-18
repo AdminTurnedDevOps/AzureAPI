@@ -44,7 +44,7 @@ jobs:
       with:
         resource-group: ${{ env.resourceGroup }}
         dns-name-label: ${{ env.dnsLabel }}
-        image: python:3.7.2-alpine/
+        image: python:latest
         location: eastus
         name: azureapi
         os-type: Linux
