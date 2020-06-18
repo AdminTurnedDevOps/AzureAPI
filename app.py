@@ -5,6 +5,7 @@ from AzureCLI import *
 
 azureAPI = Flask(__name__)
 
+
 @azureAPI.route('/')
 def home():
     try:
@@ -16,8 +17,10 @@ def home():
     except Exception as e:
         return e
 
+
 @azureAPI.route('/listvms', methods=['GET'])
 def listvms():
     return jsonify(AzureCLI.listVMs())
+
 
 azureAPI.run(host='0.0.0.0', port=5000)
