@@ -1,2 +1,3 @@
 Flask
-azure
+#azure
+azure-mgmt-compute
