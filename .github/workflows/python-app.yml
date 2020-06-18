@@ -46,4 +46,4 @@ jobs:
         name: azureapi
         os-type: Linux
         ports: 5000
-        Command: python app.py
+        command-line: python app.py
