@@ -16,6 +16,10 @@ jobs:
       env:
         resourceGroup: CBTAzure
         dnsLabel: cbtazuredns
+        
+    - uses: azure/login@v1.1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
       
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
