@@ -45,7 +45,7 @@ jobs:
     - name: Azure CLI Action
       uses: Azure/cli@v1.0.0
       with:
-        inlineScript: az webapp create -g ${{ env.resourceGroup }} -p azureapiplan -n ${{ env.appName }}
+        inlineScript: az webapp create -g ${{ env.resourceGroup }} -p azureapiplan -n ${{ env.appName }} --runtime "python|3.6"
 
     - name: Azure WebApp
       uses: Azure/webapps-deploy@v2
