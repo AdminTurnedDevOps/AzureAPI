@@ -23,4 +23,4 @@ def listvms():
     return jsonify(AzureCLI.listVMs())
 
 
-azureAPI.run(host='0.0.0.0', port=5000)
+azureAPI.run(host='0.0.0.0')
