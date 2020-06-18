@@ -37,6 +37,15 @@ jobs:
 #      run: |
 #        flake8 app.py
 
+    - name: Azure CLI Action
+      uses: Azure/cli@v1.0.0
+      with:
+        inlineScript: az appservice plan create -g ${{ env.resourceGroup }} -n azureapiplan
+
+    - name: Azure CLI Action
+      uses: Azure/cli@v1.0.0
+      with:
+        inlineScript: az webapp create -g ${{ env.resourceGroup }} -p azureapiplan -n ${{ env.appName }}
 
     - name: Azure WebApp
       uses: Azure/webapps-deploy@v2
@@ -44,15 +53,3 @@ jobs:
         app-name: ${{ env.appName }}
         package: .
         startup-command: python app.py
-        
-    - name: Deploy to Azure Container Instances
-      uses: Azure/aci-deploy@v1
-      with:
-        resource-group: ${{ env.resourceGroup }}
-        dns-name-label: ${{ env.dnsLabel }}
-        image: python:latest
-        location: eastus
-        name: azureapi
-        os-type: Linux
-        ports: 5000
-        command-line: python app.py
