@@ -5,7 +5,7 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-    
+
 env:
   resourceGroup: CBTAzure
   dnsLabel: cbtazuredns
@@ -46,6 +46,6 @@ jobs:
         dns-name-label: ${{ env.dnsLabel }}
         image: python:3.7.2-alpine/
         location: eastus
-        name: AzureAPI
+        name: azureapi
         os-type: Linux
         ports: 5000
