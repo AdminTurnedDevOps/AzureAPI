@@ -16,7 +16,7 @@ jobs:
       env:
         resourceGroup: CBTAzure
         dnsLabel: cbtazuredns
-        
+
     - uses: azure/login@v1.1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -41,8 +41,8 @@ jobs:
     - name: Deploy to Azure Container Instances
       uses: Azure/aci-deploy@v1
       with:
-        resource-group: ${resourceGroup}
-        dns-name-label: ${dnsLabel}
+        resource-group: ${{ env.resourceGroup }}
+        dns-name-label: ${{ env.dnsLabel }}
         image: python:3.7.2-alpine/
         location: eastus
         name: AzureAPI
