@@ -35,6 +35,12 @@ jobs:
 #    - name: Lint with flake8
 #      run: |
 #        flake8 app.py
+
+    - name: App Service Web App Build Action
+      uses: Azure/appservice-build@v2
+      with:
+        source-directory: .
+        platform: python
         
     - name: Deploy to Azure Container Instances
       uses: Azure/aci-deploy@v1
