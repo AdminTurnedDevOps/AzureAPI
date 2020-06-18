@@ -5,6 +5,9 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+env:
+  resourceGroup: CBTAzure
+  dnsLabel: cbtazuredns
 
 jobs:
   build:
@@ -13,9 +16,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      env:
-        resourceGroup: CBTAzure
-        dnsLabel: cbtazuredns
 
     - uses: azure/login@v1.1
       with:
