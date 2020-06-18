@@ -9,6 +9,7 @@ on:
 env:
   resourceGroup: CBTAzure
   dnsLabel: cbtazuredns
+  appName: cbtazureapi92
 
 jobs:
   build:
@@ -36,11 +37,13 @@ jobs:
 #      run: |
 #        flake8 app.py
 
-    - name: App Service Web App Build Action
-      uses: Azure/appservice-build@v2
+
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v2
       with:
-        source-directory: .
-        platform: python
+        app-name: ${{ env.appName }}
+        package: .
+        startup-command: python app.py
         
     - name: Deploy to Azure Container Instances
       uses: Azure/aci-deploy@v1
