@@ -24,6 +24,6 @@ def listvms():
 
 
 # if you want to run the API locally:
-# azureAPI.run(host='127.0.0.1')
+# azureAPI.run(host='127.0.0.1', port=5000)
 
-azureAPI.run(host='0.0.0.0', port=5000)
+azureAPI.run(host='0.0.0.0')
