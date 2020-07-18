@@ -13,9 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: python-lint
-      uses: CyberZHG/github-action-python-lint@0.0.2
-    
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
