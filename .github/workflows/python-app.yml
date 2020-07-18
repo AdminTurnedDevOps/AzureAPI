@@ -2,9 +2,7 @@ name: AzureAPI
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches: [ develop ]
 
 env:
   resourceGroup: CBTAzure
