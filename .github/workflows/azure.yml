@@ -1,0 +1,45 @@
+name: AzureAPI
+
+env:
+  container_registry: azureapiflask.azurecr.io
+  container_registry_name: azureapiflask.azurecr.io/azureapi/flask:latest
+  resourceGroup: AZ-400
+  appName: azureapiflask1992
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: azure/login@v1.1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    - name: ACR authentication
+      uses: azure/docker-login@v1
+      with:
+        login-server: ${{ env.container_registry }}
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+
+    - name: Azure CLI Action
+      uses: Azure/cli@v1.0.0
+      with:
+        inlineScript: az appservice plan create -g ${{ env.resourceGroup }} -n azureapiplan --is-linux
+
+    - name: Azure CLI Action
+      uses: Azure/cli@v1.0.0
+      with:
+        inlineScript: az webapp create -g ${{ env.resourceGroup }} -p azureapiplan -n ${{ env.appName }} -i ${{ env.container_registry_name }}
+    
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.appName }}
+        images: ${{ env.container_registry_name }}
