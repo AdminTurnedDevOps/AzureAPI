@@ -1,10 +1,6 @@
 FROM ubuntu:latest
 
-MAINTAINER Michael Levan
-
-CMD tail -f /dev/null
-
-RUN apt-get update -y && apt-get install -y python3-pip python-dev
+RUN apt-get update -y && apt-get install -y python3-pip python-dev-is-python3
 
 EXPOSE 80
 EXPOSE 5000
@@ -18,5 +14,5 @@ RUN pip3 install -r requirements.txt
 COPY . /AzureAPI
 
 ENTRYPOINT [ "python3" ]
-CMD [ "app.py" ]
+CMD [ "app.py", "tail -f /dev/null"]
 
